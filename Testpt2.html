@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Danu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            font-weight: 700;
+            animation: slideDown 1s ease-in-out;
+        }
+        nav {
+            background: linear-gradient(to right, #1abc9c, #16a085);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 18px;
+            position: relative;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #000000;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::before {
+            width: 100%;
+        }
+        nav a:hover {
+            color: #000000;
+            transform: scale(1.1);
+        }
+        .home-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f8f9fa; /* atau gunakan warna yang sesuai */
+    padding: 0 50px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.text-container {
+    max-width: 600px;
+}
+
+.text-container h1 {
+    font-size: 24px;
+    color: #7a7a7a;
+    margin-bottom: 10px;
+}
+
+.text-container h2 {
+    font-size: 48px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.text-container p {
+    font-size: 18px;
+    color: #7a7a7a;
+    margin-bottom: 30px;
+}
+
+.image-container {
+    max-width: 400px;
+    text-align: center;
+}
+
+.image-container img {
+    border-radius: 50%;
+    max-width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+        main {
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h3 {
+            border-bottom: 2px solid #16a085;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: #16a085;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+        .section p, .section ul {
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        .section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .section ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .skills-container {
+            margin-bottom: 20px;
+        }
+        .skill-bar {
+            position: relative;
+            background: #ecf0f1;
+            border-radius: 50px;
+            overflow: hidden;
+            height: 30px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 50px;
+            background: linear-gradient(to right, #1abc9c, #16a085);
+            transition: width 1s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-bar-fill span {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: 600;
+        }
+        .skill-title {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+        }
+        .skill-title i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .profile-photo {
+            float: left;
+            margin-right: 30px;
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+        .profile-photo:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Website - Axilot</h1>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#profile">Profil</a>
+        <a href="#education">Pendidikan</a>
+        <a href="#experience">Pengalaman Kerja</a>
+        <a href="#skills">Keterampilan</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <section id="home" class="home-section">
+        <div class="container">
+            <div class="text-container">
+                <h1>Halo, Perkenalkan Saya</h1>
+                <h2>Danu Miharja</h2>
+                <p>Saya seorang pengembang web yang cukup berpengalaman dalam membangun aplikasi web modern dengan berbagai teknologi. Saya memiliki minat yang kuat dalam pengembangan software dan senang belajar hal-hal baru yang berkaitan dengan teknologi.</p>
+            </div>
+            <div class="image-container">
+                <img src="Danu Image.jpg" alt="Danu Miharja" class="profile-photo">
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="profile" class="section clearfix">
+            <img src="Danu Image.jpg" alt="Foto Muka Danu" class="profile-photo">
+            <h2>Profil</h2>
+            <p>Saya Danu Miharja, memiliki latar belakang pendidikan yang kuat dalam Ilmu Komputer dan pengalaman profesional yang luas dalam pengembangan web. Meskipun pengalaman kerja saya dihotel itu adalah itu adalah bukti saya senang tantangan baru dan selalu berusaha memberikan hasil terbaik dalam setiap proyek yang saya tangani. Fokus saya adalah pada kualitas dan inovasi dalam setiap solusi digital yang saya kembangkan.</p>
+        </section>
+        
+        <section id="education" class="section">
+            <h3>Pendidikan</h3>
+            <ul>
+                <li><i class="fas fa-school"></i><strong> SMK Rosma</strong>, Teknik Komputer Jaringan - 2022 - 2025</li>
+                <li><i class="fas fa-school"></i><strong> SMPN 2 Karawang Timur</strong>, - 2020 - 2022</li>
+            </ul>
+        </section>
+        
+        <section id="experience" class="section">
+            <h3>Pengalaman Kerja</h3>
+            <ul>
+                <li><i class="fas fa-briefcase"></i><strong> Front Office</strong>, Hotel Resinda Karawang - 2023 - 2024</li>
+            </ul>
+        </section>
+        
+        <section id="skills" class="section">
+            <h3>Keterampilan</h3>
+            <div class="skills-container">
+                <div class="skill-title"><i class="fab fa-html5"></i>HTML</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 52%;">
+                        <span>52%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-title"><i class="fab fa-css3-alt"></i>CSS</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 35%;">
+                        <span>35%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-title"><i class="fab fa-js"></i>JavaScript</div>
+                <div class="skill-bar">
+                    <div class="skill-bar-fill" style="width: 15%;">
+                        <span>15%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h3>Kontak</h3>
+            <p><i class="fas fa-envelope"></i> Email: danumiharja2020@gmail.com</p>
+            <p><i class="fas fa-phone"></i> Telepon: +62 8571 9504 079</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Hak Cipta &copy; 2024 Danu</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
